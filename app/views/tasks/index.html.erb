@@ -2,7 +2,7 @@
 
 <ul>
     <% @tasks.each do |task| %>
-        <il><%= link_to task.id, task_path(task)%> : <%= task.content %> </il>
+        <il><%= link_to task.id, task_path(task)%> : <%= task.status %> &gt; <%= task.content %> </il>
     <% end %>
 </ul>
 
