@@ -1,20 +1,28 @@
-<h1>タスク一覧</h1>
+<h1 class="mt-4">タスク一覧</h1>
 
 <table class="table table-striped">
-    <thead>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>タイトル</th>
+      <th>メッセージ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
       <tr>
-        <th>id</th>
-        <th>タイトル</th>
-        <th>メッセージ</th>
+        <td><%= link_to task.id, task_path(task)%></td>
+        <td><%= task.status %></td>
+        <td><%= task.content %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @tasks.each do |task| %>
-        <tr>
-          <td><%= link_to task.id, task_path(task)%></td>
-          <td><%= task.status %></td>
-          <td><%= task.content %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="center jumbotron">
+  <div class="text-center">
+    <h1>Welcome to the Tasklist</h1>
+    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary mt-4' %>
+  </div>
+</div>
+
